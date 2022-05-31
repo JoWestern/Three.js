@@ -1,27 +1,86 @@
 import './style.css'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import 'threex.domevents'
+import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
+import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
+import {GLTFLoader} from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
+import {DRACOLoader} from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js';
+import {RoomEnvironment} from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/environments/RoomEnvironment.js';
 
 
-// Scence == container
-const scene = new THREE.Scene();
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight
+}
+
 
 // Canvas
-const canvas = document.querySelector('canvas.bg')
+const canvas = document.querySelector('bg');
 
 // Mimics human eyeball.
 // @param: FOV, Aspect Ratio, 2 x View Frustrum
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+//const camera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 ); 
+
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
-  alpha: true
-})
+  alpha: true,
+  antialias: true
+});
+
+//Orbit Controls
+const controls = new OrbitControls( camera, renderer.domElement );
+controls.target.set( 0, 0.5, 0 );
+controls.update();
+controls.enablePan = false;
+controls.enableDamping = true;
+
+// Scence == container
+const scene = new THREE.Scene();
+const pmremGenerator = new THREE.PMREMGenerator( renderer );
+scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
+
+// 3D model loader
+const loader = new GLTFLoader();
+
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('/js/libs/draco/gltf/');
+loader.setDRACOLoader(dracoLoader);
+
+var mesh;
+// load model
+loader.load('/models/mclaren.glb', function (gltf) {
+  
+  //mesh = gltf.scene.children[1];
+  //scene.add(mesh);
+
+  const model = gltf.scene;
+  model.position.set( 3, -2, 25 );
+  model.rotation.set(0, -1, 0);
+  model.scale.set( 1, 1, 1 );
+  scene.add( model );
+
+  animate();
+
+}, function ( xhr ) {
+
+  console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+}, undefined, function (e) {
+  console.error(e);
+});
+
+// Resize
+window.onresize = function () {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
 
 renderer.setClearAlpha(0)
-
-renderer.setPixelRatio(window.devicePixelRatio)
+renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.render(scene, camera)
 
 // Full screen canvas
 renderer.setSize(window.innerWidth, window.innerHeight)
@@ -83,9 +142,9 @@ sculpt.position.y += -objectsDistance * 0
 staticSculpt.position.y += -objectsDistance * 0
 
 // Light
-const ambiLight = new THREE.AmbientLight(0xffffff)
-ambiLight.position.set(5, 5, 5)
-scene.add(ambiLight)
+//const ambiLight = new THREE.AmbientLight(0xffffff)
+//ambiLight.position.set(5, 5, 5)
+//scene.add(ambiLight)
 
 /**
  * Scroll
@@ -100,38 +159,35 @@ staticSculpt.addEventListener('click', () => {
   alert('yo')
 })
 
-const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight
-}
+window.addEventListener('resize', () => {
+  //Update Sizes:
+  sizes.width = window.innerWidth;
+  sizes.height = window.innerHeight;
 
-window.addEventListener('resize', () =>
-{
-  // Update sizes
-  sizes.width = window.innerWidth
-  sizes.height = window.innerHeight
-
-  // Update camera
-  camera.aspect = sizes.width / sizes.height
+  //Camera
+  camera.aspect = sizes.width/sizes.height
   camera.updateProjectionMatrix()
 
-  // Update renderer
+  //Update renderer:
   renderer.setSize(sizes.width, sizes.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-
+const clock = new THREE.Clock()
 
 function animate() {
   
-  requestAnimationFrame( animate )
+  const elapsedTime = clock.getElapsedTime();
+
+  requestAnimationFrame( animate );
   
-  camera.position.y = -scrollY * 2.5 / sizes.height
-  sculpt.rotation.y += 0.005
+  camera.position.y = -scrollY * 2.5 / sizes.height;
+  sculpt.rotation.y += 0.005;
+
+  controls.update();
   
   //controls.update()
-  
-  renderer.render(scene, camera)
+  renderer.render(scene, camera);
 }
 
 animate()

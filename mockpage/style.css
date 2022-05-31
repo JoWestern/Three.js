@@ -75,7 +75,12 @@ blockquote p {
 }
 
 .left {
-  grid-column: 6 / 12;
+  grid-column: 1 / 4;
 }
 
+@media screen and (max-width: 800px) {
+  body {
+  width: 100%
+  }
+}
 

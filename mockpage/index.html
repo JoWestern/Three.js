@@ -7,83 +7,100 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.min.js"></script>
+    
+    <title>Sensorteknologi</title>
+      
   </head>
   <body>
-    <div class="container-md">
-      <div id="container"></div>
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <img src="/img/norkart_logo_neg.png" alt="" width="100" height="auto" class="d-inline-block align-text-top">
+            </a>
+        </div>
+    </nav>
 
       <canvas id = "bg"></canvas>
-      
       <script type="module" src="/main.js"></script>
-    
+
+      <div class="stop-scrolling"></div>
+      <div class="progress-bar-container">
+        <label for="progress-bar">Loading...</label>
+        <progress id="progress-bar" value="0" max="100"></progress>
+      </div>
     
       <main>
 
         <header>
-          <h1>Sensorteknologi</h1>
-          <p>i norske havner</p>
+          <div class="light" id="introText">
+            <h1>Sensorteknologi <br> i norske havner</h1>
+          </div>
         </header>
 
         <blockquote>
           <p>Ports</p>
         </blockquote>
 
-        <section>
-          <h2>Info</h2>
-          <p>
-          Det tredje møtet var med Arendal havn. De begynte med å fortelle at havnen ikke får økonomisk støtte, dermed må havnen stå for egne inntekter. Inntektene kommer fra håndtering av gods og skip inn og ut av havnen, samt utleie av havneområder. I tillegg til den kommersielle delen av havnen har de en gjestehavn som er helautomatisert med 1600 båtplasser. Kilden snakket om at den kommersielle havnen er i stor vekst, som gjør at fokuset på i de forskjellige delene av havnen skiller seg. Her nevnte de at områdene som kommersiell- og gjestehavn blir splittet opp. De mente også at dette vil føre til at den kommersielle havnen kommer til å trenge mer digitalisering og digitale verktøy. Med splittelsen mente de at egne driftsselskaper kan komme inn på gjestehavnen ettersom det er mer en turistattraksjon enn havneaktivitet. De vil fortsatt stå for ansvar og eierskap av infrastruktur og installasjoner. Ettersom utvikling i den kommersielle havnen, som inkluderer det som vil bli den nye batterifabrikken, vil føre til økt aktivitet av gods som kommer inn og ut, økt ansettelse, mer synkronisering av det driftsmessige og mer skille på ansvarsområdene av det som regnes som havneaktivitet. Det er flere aktiviteter i havnen som er ineffektivt. Administrasjon og tildeling av havnebåtplasser blir splittet ut i et eget selskap i havnen eller kommunen, det samme skjer på gjestehavnen. De var veldig opptatt av skille mellom fokusområdene som havnedrift, turisme og det kommersielle.  
-          </p>
-
-          <p>
-          Vi spurte om de ønsket seg mer åpen data hvor de svarte at det var delvis nyttig for dem. De mente det kunne hjelpe logsitikkmessig og med operasjoner i havnen som lasting, lossing og fakturering kunne skjedd gjennom “one point of contact”. Da vi spurte om datainnhentingsprosesser svarte de at det ikke var mange sensorer i havnen. Det var snakk om at det var et prosjekt gående som skulle legge til rette for sensorer og automatisere skipsanløp. De snakket mye om visjonene for fremtiden. Per i dag vil skip informere om ankomst et par døgn i forveien og melder inn behov for kaiplass, hva som skal lastes og losses, personnel som er nødvendig osv. Mye av gods blir fraktet til en dryport, noe de vil at skal være helautomatisert, hvor bare et kontrollrom er nødvendig. De vil også ha automatisert lasting og lossing slik at de ikke trenger å bemanne kaia. De ville automatisere veien fram til en dryport som er et logistikknutepunkt. Mye av dette baserer seg på at skipene er mottakelig for å være autonome. Registreringsprosessen for en last må gå gjennom 14-18 manuelle steg, og har mange feilfaktormuligheter. Basert på hva vi har hørt fra tidligere intervju, var de overraskende fornøyd med eksisterende systemer. Det kommer til å være ny registrering av informasjon i havna hvor kartverket skal komme inn for å få tilrettelagt data, som inkluderer pullerter og kaiareal osv. 
-          </p>
-        
-          <p>
-          Til slutt snakket de om nødvendige typer data de trenger. Havgrunndata sa de er veldig viktig. Det er få aktører som kan skanne og komme med verifisert data. Det ville ha nøyaktige dybdemålinger, landbasert posisjonsinformasjon med maks feilmargin på 2-3 cm på plassering. De mente at det var greit med tidevannssensor, men siden de er i et område med lite tidevann så det var ikke et stort problem for dem. De var mest for avstandssensorer som kan snakke sammen. Ettersom autonomitet var en viktig del for dem må de være sikre på at skutene som ligger til land kan snakke med utstyret som skal drive med laste og losse operasjonene, hvor alt må være veldig nøyaktig.     
-          </p>
-        
+        <section class="light">
+          <h2>Om Prosjektet - Digitalisering som forenkler og effektiviserer</h2>
+          <p>Her kommer det masse tekst. en innledning om prosjektet...</p>
         </section>
 
         <section class="light">
-          <h2>Projects</h2>
-        
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-
-          <h2>Accomplishments</h2>
-
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-
+          <h2>Prosjektets mål og visjon</h2>
+          <br>
+          <p>Målet ved dette prosjektet:</p>
+          <ul>
+            <li>Styrke og effektivisere den norske havnestrukturen.</li>
+            <li>Bygge en felles plattform mellom nasjonale havner.</li>
+            <li>Bidra med hvordan norske havn har fordel i å bruke digital teknologi, <br>med sikkerhet og fremme deres behov.</li>
+            <li>Bidra med hvordan norske havner kan lede gjennom sensordata <br>prosesser mot en mer bærekraftig og inkluderende bransje.</li>
+            <li>Være med på å oppnå FN Bærekraftmål, mål 9, 11 og 17.</li>
+          </ul>
+          <br>
+          <p>Visjonen - Norske havn skal være:</p>
+          <ol>
+            <li>Effektive</li>
+            <li>Tilpasningsdyktig</li>
+            <li>Inkluderende, internt og eksternt</li>
+          </ol> 
         </section>
 
-        <blockquote>
-          <p>The best way out is always through <br>-Robert Frost</p>
-        </blockquote>
-
-        <section class="left">
-          <h2>Work History</h2>
-
-          <h3>Kristiansand</h3>
-          <p>
-          </p>
-          <h3>Stavanger</h3>
-          <p>
-        </p>
-          <h3>Arendal</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-
+        <section class="light">
+          <h2>Problem</h2>
+          <br>
+          <p>Utfordringene i forhold til sensordata og IoT er at dataene kan bevege seg fort, uforutsigbart og kan ha kort levetid. De kan variere mye, og kan utgjøre store datamengder i volum og omfang. Fremover må vi kunne håndtere og utvikle infrastrukturer og teknologier for å kunne utnytte flyt av ikke standardiserte data fra IoT som en del av våre felles digitale økosystem.</p>
+          <br>
+          <p>Våre norske havner har dermed et stort potensiale for å bli mer digitalisert. Dersom de lykkes med dette, vil norske havner ha mer effektive rutiner som både sparer dem tid og ressurser, bli mer tilpasningsdyktige med teknologien, og virke inkluderende både internt i havn, men også eksternt når data skal deles med for eksempel et innkommende skip eller dersom en elektriker skal fikse noe på havnen.</p>
         </section>
 
-        <blockquote>
-          <p>Thank you!</p>
-        </blockquote>
+        <section class="light">
+          <h2>Eksisterende tekniske løsninger</h2>
+          <br>
+          <p>tekst kommer inn her..</p>            
+          </section>
+
+          <section class="light">
+            <h2>Funn fra brukergruppen</h2>
+            <br>
+            <p>Brukergruppen ved dette prosjektet er alle norske havner i Norge. For å kartlegge hvor brukerbehovet foreligger, var det nødvendig for kartleggingsteamet å kartlegge områdene. Områdene knyttet til sensorteknologi som kan både forbedres og tilrettelegges, blir sett som essensielle områder hos de ulike havnene. Kartleggingsteamet tok dermed kontakt med fire havner; Arendal, Kristiansand, Stavanger og Oslo.</p>            
+            <br>
+            <p>De fire havnene har vist stor interesse for prosjektet Sensorteknologi i norske havner. Gjennom intervju, har disse bidratt med verdifull informasjon som gir en bedre forståelse på deres behov.</p>
+          </section>
+
+          
+            <span class="info box"></span>
+            <span class="circle plus" id="plusbutton"></span>
+            <span class="circle exit" id="exitbutton"></span>
+            <div class="lable">
+              <p class="lablesmall">Les mer</p>
+            </div>
+            <span class="info tekst"></span>
+          
       </main>
-    </div>
+
   </body>
 </html>

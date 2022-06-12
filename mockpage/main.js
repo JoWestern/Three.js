@@ -101,6 +101,8 @@ let portModel;
 let satearthModel;
 let satelitteModel;
 let norgeModel;
+let pointModel;
+let userModel;
  
 let offsetZ = 2;
 let offsetX = 1;
@@ -186,8 +188,8 @@ function init() {
 stromButtonDiv = document.createElement( 'span' );
 let stromButtonStyle = stromButtonDiv.style;
 stromButtonDiv.className = "strom-knapp";
-stromButtonStyle.background =  'white'; // rgb(24, 24, 24)
-stromButtonStyle.color = 'black';
+stromButtonStyle.background =  '#285376'; // rgb(24, 24, 24)
+stromButtonStyle.color = 'white';
 stromButtonStyle.fontSize = '18px';
 stromButtonStyle.borderRadius = '15px';
 stromButtonStyle.margin = "20px";
@@ -232,8 +234,8 @@ strom.add( stromInfoLabel );
 sjoButtonDiv = document.createElement( 'span' );
 let sjoButtonStyle = sjoButtonDiv.style;
 sjoButtonDiv.className = "sjo-knapp";
-sjoButtonStyle.background =  'white'; // rgb(24, 24, 24)
-sjoButtonStyle.color = 'black';
+sjoButtonStyle.background =  '#285376'; // rgb(24, 24, 24)
+sjoButtonStyle.color = 'white';
 sjoButtonStyle.fontSize = '18px';
 sjoButtonStyle.borderRadius = '15px';
 sjoButtonStyle.margin = "20px";
@@ -277,8 +279,8 @@ strom.add( sjoInfoLabel );
 sensorButtonDiv = document.createElement( 'span' );
 let sensorButtonStyle = sensorButtonDiv.style;
 sensorButtonDiv.className = "sensor-knapp";
-sensorButtonStyle.background =  'white'; // rgb(24, 24, 24)
-sensorButtonStyle.color = 'black';
+sensorButtonStyle.background =  '#285376'; // rgb(24, 24, 24)
+sensorButtonStyle.color = 'white';
 sensorButtonStyle.fontSize = '18px';
 sensorButtonStyle.borderRadius = '15px';
 sensorButtonStyle.margin = "20px";
@@ -328,8 +330,8 @@ function nasjonalScaleUp() {
 }
 
 function nasjonalScaleDown() {
-  stromButtonStyle.background = 'white';
-  stromButtonStyle.color = 'rgb(24, 24, 24)';
+  stromButtonStyle.background = '#285376';
+  stromButtonStyle.color = 'white';
   stromInfoStyle.opacity = '0';
   stromInfoStyle.content = 'none';
 }
@@ -343,8 +345,8 @@ function sjoScaleUp() {
 }
 
 function sjoScaleDown() {
-  sjoButtonStyle.background = 'white';
-  sjoButtonStyle.color = 'rgb(24, 24, 24)';
+  sjoButtonStyle.background = '#285376';
+  sjoButtonStyle.color = 'white';
   sjoInfoStyle.opacity = '0';
   sjoInfoStyle.content = 'none';
 }
@@ -358,8 +360,8 @@ function sensorScaleUp() {
 }
 
 function sensorScaleDown() {
-  sensorButtonStyle.background = 'white';
-  sensorButtonStyle.color = 'rgb(24, 24, 24)';
+  sensorButtonStyle.background = '#285376';
+  sensorButtonStyle.color = 'white';
   sensorInfoStyle.opacity = '0';
   sensorInfoStyle.content = 'none';
 }
@@ -370,9 +372,9 @@ function sensorScaleDown() {
   kafkaButtonDiv = document.createElement( 'span' );
   let pkafkaStyle = kafkaButtonDiv.style;
   kafkaButtonDiv.className = "kafka-knapp";
-  pkafkaStyle.background =  'white';
+  pkafkaStyle.background =  '#285376';
   pkafkaStyle.fontSize = '18px';
-  pkafkaStyle.color = 'black';
+  pkafkaStyle.color = 'white';
   pkafkaStyle.borderRadius = '15px';
   pkafkaStyle.margin = "20px";
   pkafkaStyle.padding = "15px";
@@ -420,8 +422,8 @@ function sensorScaleDown() {
   }
 
   function kafkaScaleDown() {
-    pkafkaStyle.background = 'white';
-    pkafkaStyle.color = 'rgb(24, 24, 24)';
+    pkafkaStyle.background = '#285376';
+    pkafkaStyle.color = 'white';
     kafkaStyle.opacity = '0';
     kafkaStyle.content = 'none';
   }
@@ -430,8 +432,8 @@ function sensorScaleDown() {
   techButtonDiv = document.createElement( 'span' );
   let techButtonStyle = techButtonDiv.style;
   techButtonDiv.className = "tech-knapp";
-  techButtonStyle.background =  'white'; // rgb(24, 24, 24)
-  techButtonStyle.color = 'black';
+  techButtonStyle.background =  '#285376'; // rgb(24, 24, 24)
+  techButtonStyle.color = 'white';
   techButtonStyle.fontSize = '18px';
   techButtonStyle.borderRadius = '15px';
   techButtonStyle.margin = "20px";
@@ -475,8 +477,8 @@ function sensorScaleDown() {
   }
 
   function techScaleDown() {
-    techButtonStyle.background = 'white';
-    techButtonStyle.color = 'rgb(24, 24, 24)';
+    techButtonStyle.background = '#285376';
+    techButtonStyle.color = 'white';
     techStyle.opacity = '0';
     techStyle.content = 'none';
   }
@@ -487,8 +489,8 @@ function sensorScaleDown() {
   earthButtonDiv = document.createElement( 'span' );
   let bStyle = earthButtonDiv.style;
   earthButtonDiv.className = "hamburg-knapp";
-  bStyle.background =  'white';
-  bStyle.color = 'rgb(24, 24, 24)';
+  bStyle.background =  '#285376';
+  bStyle.color = 'white';
   bStyle.fontSize = '18px';
   bStyle.borderRadius = '15px';
   bStyle.margin = "20px";
@@ -533,8 +535,8 @@ function sensorScaleDown() {
   palmasButtonDiv = document.createElement( 'span' );
   let pStyle = palmasButtonDiv.style;
   palmasButtonDiv.className = "palmas-knapp";
-  pStyle.background =  'white';
-  pStyle.color = 'rgb(24, 24, 24)'
+  pStyle.background =  '#285376';
+  pStyle.color = 'white'
   pStyle.fontSize = '18px';
   pStyle.borderRadius = '15px';
   pStyle.margin = "20px";
@@ -607,8 +609,8 @@ function sensorScaleDown() {
   function hamburgScaleDown() {
       // bStyle.padding = '15px';
       // bStyle.fontSize = '18px'; 
-      bStyle.background = 'white';
-      bStyle.color = 'rgb(24, 24, 24)';
+      bStyle.background = '#285376';
+      bStyle.color = 'white';
       pStyle.content = 'normal';
       eStyle.opacity = '0';
       eStyle.content = 'none'
@@ -626,8 +628,8 @@ function sensorScaleDown() {
   function palmasScaleDown() {
       // bStyle.padding = '15px';
       // bStyle.fontSize = '18px'; 
-      pStyle.background = 'white';
-      pStyle.color = 'rgb(24, 24, 24)';
+      pStyle.background = '#285376';
+      pStyle.color = 'white';
       earthButtonDiv.style.opacity = '1';
       peStyle.opacity = '0';
       peStyle.content = 'none';
@@ -640,7 +642,7 @@ wifiModel = new THREE.Object3D();
   // load a resource
   WIFIloader.load('/models/wifi.obj', function ( object ) {
 
-    object.scale.set(20, 20, 20)
+    object.scale.set(15, 15, 15)
     object.position.set(1, -10.4, 0)
     object.rotation.set(0, 0, 0)
     wifiModel = object;
@@ -662,27 +664,27 @@ wifiModel = new THREE.Object3D();
   );
 
 ///////////////LOAD PORT MODEL////////////////////
-  loader.load('/models/port/port.glb', function (gltf) {
+  // loader.load('/models/port/port.glb', function (gltf) {
     
-    //mesh = gltf.scene.children[0];
-    //scene.add(mesh);
+  //   //mesh = gltf.scene.children[0];
+  //   //scene.add(mesh);
     
-    model = gltf.scene;
+  //   model = gltf.scene;
 
-    model.position.set( 0, 0, 0 );
-    model.rotation.set(0, 0, 0);
-    model.scale.set( 0.015, 0.015, 0.015 );
-    modelY = model.position.y
+  //   model.position.set( 0, 1, 0 );
+  //   model.rotation.set(0, 0, 0);
+  //   model.scale.set( 0.015, 0.015, 0.015 );
+  //   modelY = model.position.y
     //scene.add( model );
    
 
-  }, function ( xhr ) {
+  // }, function ( xhr ) {
 
-    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+  //   console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-  }, undefined, function (e) {
-    console.error(e);
-  });
+  // }, undefined, function (e) {
+  //   console.error(e);
+  // });
 
 
   //////////////LOAD EARTH MODEL////////////////////
@@ -739,13 +741,13 @@ wifiModel = new THREE.Object3D();
     console.error(e);
   });
 
-  /////////////////////LOAD NEURON////////////////////////////
+  /////////////////////LOAD LITEN PORT////////////////////////////
   neuronModel = new THREE.Object3D();
   loader.load('/models/error/scene.gltf', function (gltf) {
     
     
     neuronModel = gltf.scene;
-    neuronModel.position.set( 1, -5.5, 0 );
+    neuronModel.position.set( 1, -25.3, 0 );
     neuronModel.scale.set(1.5, 1.5, 1.5)
     neuronModel.rotation.set(0, 3.5, 0)
     neuronModel.name = "errorModel";
@@ -766,8 +768,8 @@ wifiModel = new THREE.Object3D();
     
     
     boatModel = gltf.scene;
-    boatModel.position.set( 0.5, -17.7, 1 );
-    boatModel.rotation.set(0, -1.8, 0);
+    boatModel.position.set( 0.5, -20.1, 1 );
+    boatModel.rotation.set(0, -1, 0);
     boatModel.scale.set( 2, 2, 2 );
     boatModel.name = "BoatModel";
 
@@ -788,8 +790,8 @@ wifiModel = new THREE.Object3D();
     
     
     portModel = gltf.scene;
-    portModel.position.set( -0.05, -0.5, 0 );
-    portModel.rotation.set(0, -1, 0);
+    portModel.position.set( 0, 0, 0 );
+    portModel.rotation.set(0.25, -0.8, 0);
     portModel.scale.set( 2, 2, 2 );
     portModel.name = "portModel";
 
@@ -811,7 +813,7 @@ wifiModel = new THREE.Object3D();
     
     satearthModel = gltf.scene;
     satearthModel.position.set( 1, -3.4, 0 );
-    satearthModel.scale.set(0.8, 0.8, 0.8)
+    satearthModel.scale.set(0.8, 0.8, 0.8 )
     satearthModel.rotation.set(0, 0, 0)
     satearthModel.name = "satearthModel";
     scene.add(satearthModel);
@@ -831,8 +833,8 @@ wifiModel = new THREE.Object3D();
     
     satelitteModel = gltf.scene;
     satelitteModel.scale.set(0.00005, 0.00005, 0.00005)
-    satelitteModel.rotation.set(0, 1.5, 0)
-    satelitteModel.position.set( -1, 1, 0 );
+    satelitteModel.rotation.set(-1, -1, 0)
+    satelitteModel.position.set( -2, 1, 0 );
     satelitteModel.name = "satelitteModel";
     satearthModel.add(satelitteModel)
 
@@ -852,9 +854,9 @@ wifiModel = new THREE.Object3D();
     
     
     norgeModel = gltf.scene;
-    norgeModel.scale.set(0.5, 0.5, 0.5)
+    norgeModel.scale.set(0.3, 0.3, 0.3)
     norgeModel.rotation.set(0, 0, 0)
-    norgeModel.position.set( 1.3, -12.3, 0 );
+    norgeModel.position.set( 1.2, -12.3, 0 );
     norgeModel.name = "norgeModel";
     scene.add(norgeModel)
 
@@ -865,6 +867,46 @@ wifiModel = new THREE.Object3D();
   }, undefined, function (e) {
     console.error(e);
   });
+
+  /////////////////////LOAD CLOUD////////////////////////////
+  userModel = new THREE.Object3D();
+  loader.load('/models/glass/scene.gltf', function (gltf) {
+    
+    
+    userModel = gltf.scene;
+    userModel.scale.set(0.05, 0.05, 0.05)
+    userModel.rotation.set(0, -0.5, 0)
+    userModel.position.set( -1, -8, -0.5 );
+    userModel.name = "userModel";
+    scene.add(userModel)
+
+  }, function ( xhr ) {
+
+    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+  }, undefined, function (e) {
+    console.error(e);
+  });
+
+   /////////////////////LOAD EXCLAMATION POINT////////////////////////////
+   pointModel = new THREE.Object3D();
+   loader.load('/models/person/excl/scene.gltf', function (gltf) {
+     
+     
+    pointModel = gltf.scene;
+    pointModel.scale.set(0.01, 0.01, 0.01)
+    pointModel.rotation.set(0, -0.5, 0)
+    pointModel.position.set( 1.3, -7.4, 0 );
+    pointModel.name = "pointModel";
+     scene.add(pointModel)
+ 
+   }, function ( xhr ) {
+ 
+     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+ 
+   }, undefined, function (e) {
+     console.error(e);
+   });
 
 
 
@@ -997,6 +1039,11 @@ function events() {
     //model.rotation.y = 4 + (scrollY/500)
   })
 
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  } 
+
   function disableScroll() {
     // Get the current page scroll position
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -1124,6 +1171,14 @@ function mouseRotate() {
     if (portModel) {
       
       //portModel.rotation.y += 0.05 * ( targetX - model.rotation.y );
+    }
+
+    if(neuronModel) {
+      neuronModel.rotation.y += 0.05 * ( targetX - neuronModel.rotation.y );
+    }
+
+    if (boatModel) {
+      boatModel.rotation.y += 0.05 * ( targetX - boatModel.rotation.y );
     }
   }
 
